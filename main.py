@@ -4,11 +4,14 @@ from typing import List, Optional, Dict, Any
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from bson import ObjectId
+from dotenv import load_dotenv
+load_dotenv()
+
 
 app = FastAPI()
 
 # MongoDB connection
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+MONGO_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["Ecommerce_Data"]
 
